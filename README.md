@@ -36,10 +36,7 @@ Things you may want to cover:
 | last_name_reading | string | null: false |
 | email    | string | null: false |
 | encrypted_password | string | null: false |
-| birth_year_id | integer | null: false |
-| birth_month_id | integer | null: false |
-| birth_day_id | integer | null: false |
-
+| birth_date | date | null: false |
 
 ### Association
 
@@ -54,7 +51,7 @@ Things you may want to cover:
 | ------ | ------ | ----------- |
 | title   | string | null: false |
 | image  | text | null: false |
-| description_item | text | null: false |
+| description | text | null: false |
 | price   | integer | null: false |
 | item_category_id   | integer | null: false |	
 | item_condition_id | integer | null: false |	
@@ -86,11 +83,12 @@ Things you may want to cover:
 
 | Column  | Type       | Options      |
 | ------- | ---------- | -------------|                              
-| item_id   | integer | null: false |
-| user_id   | integer | null: false |
+| item_id   | integer | null: false, foreign_key: true |
+| user_id   | integer | null: false, foreign_key: true |
 
 ### Association
 
+- has_one :shipment
 - belongs_to :item
 - belongs_to :user
 
@@ -102,9 +100,9 @@ Things you may want to cover:
 | prefecture_id | integer | null: false |
 | city  | string | null: false |
 | house_number  | string | null: false |
-| building  | string |  |
+| building  | string | |
 | phone_number  | string | null: false |
-| purchase_id | integer | null: false |
+| purchase_id | integer | null: false, foreign_key: true |
 
 
 ### Association
