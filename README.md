@@ -29,10 +29,16 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | ----------| ------ | ----------- |
+| nickname | string | null: false |
 | first_name | string | null: false |
 | last_name | string | null: false |
+| first_name_reading | string | null: false |
+| last_name_reading | string | null: false |
 | email    | string | null: false |
 | encrypted_password | string | null: false |
+| birth_year_id | integer | null: false |
+| birth_month_id | integer | null: false |
+| birth_day_id | integer | null: false |
 
 
 ### Association
@@ -48,15 +54,20 @@ Things you may want to cover:
 | ------ | ------ | ----------- |
 | title   | string | null: false |
 | image  | text | null: false |
-| description-item | text | null: false |
+| description_item | text | null: false |
 | price   | integer | null: false |
+| item_category_id   | integer | null: false |	
+| item_condition_id | integer | null: false |	
+| ship_fee_id  | integer | null: false |	
+| region_id  | integer | null: false |	
+| ship_date_id | integer | null: false |
 | user  | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :comments
 - has_one :purchase
-- references: user
+- belongs_to :user
 
 ## comments テーブル
 
@@ -70,13 +81,11 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- references: user
-- references: item
 
 ## purchases テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |                              
+| Column  | Type       | Options      |
+| ------- | ---------- | -------------|                              
 | item_id   | integer | null: false |
 | user_id   | integer | null: false |
 
@@ -85,26 +94,16 @@ Things you may want to cover:
 - belongs_to :item
 - belongs_to :user
 
-## profiles テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |                              
-| birth-date    | integer | null: false |
-| user_id   | integer | null: false  |
-
-### Association
-
-- belongs_to :user
-
 ## shipments テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |                              
+| Column  | Type       | Options            |
+| ------- | ---------- | ------------------ |                              
 | postal  | string | null: false |
+| prefecture_id | integer | null: false |
 | city  | string | null: false |
-| house-number  | string | null: false |
+| house_number  | string | null: false |
 | building  | string |  |
-| phone-number  | string | null: false |
+| phone_number  | string | null: false |
 | purchase_id | integer | null: false |
 
 
