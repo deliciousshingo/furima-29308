@@ -29,11 +29,9 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | ----------| ------ | ----------- |
-| nickname | string | null: false |
-| name | string | null: false |
-| name-reading | string | null: false |
+| first_name | string | null: false |
+| last_name | string | null: false |
 | email    | string | null: false |
-| password | string | null: false |
 | encrypted_password | string | null: false |
 
 
@@ -48,22 +46,17 @@ Things you may want to cover:
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
-| titile   | string | null: false |
+| title   | string | null: false |
 | image  | text | null: false |
-| item-comment  | text | null: false |
+| description-item | text | null: false |
 | price   | integer | null: false |
-| item-category   | string | null: false |
-| item-condition| string | null: false |
-| ship-fee  | string | null: false |
-| region  | string | null: false |
-| ship-date | string | null: false |
 | user  | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :comments
 - has_one :purchase
-- references: user_id
+- references: user
 
 ## comments テーブル
 
@@ -77,25 +70,27 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- references: user_id
-- references: item_id
+- references: user
+- references: item
 
 ## purchases テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |                              
-| item   | integer | null: false |
+| item_id   | integer | null: false |
+| user_id   | integer | null: false |
 
 ### Association
 
 - belongs_to :item
+- belongs_to :user
 
 ## profiles テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |                              
 | birth-date    | integer | null: false |
-| user   | integer | null: false  |
+| user_id   | integer | null: false  |
 
 ### Association
 
@@ -105,12 +100,12 @@ Things you may want to cover:
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |                              
-| postal  | integer | null: false |
-| prefecture  | string | null: false |
+| postal  | string | null: false |
 | city  | string | null: false |
 | house-number  | string | null: false |
 | building  | string |  |
-| phone-number  | integer | null: false |
+| phone-number  | string | null: false |
+| purchase_id | integer | null: false |
 
 
 ### Association
