@@ -143,10 +143,10 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= "商品名" %>
+            <%= item.title %>
           </h3>
           <div class='item-price'>
-            <span><%= "販売価格" %>円<br>(税込み)</span>
+            <span><%= item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -185,7 +185,7 @@
   <%# /商品一覧 %>
 </div>
 <div class='purchase-btn'>
-  <%= link_to "出品する", new_item_path(current_user.id), class: "purchase-btn-text"%>
+  <%= link_to "出品する", new_item_path, class: "purchase-btn-text"%>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 </div>
 <%= render "shared/footer" %>
