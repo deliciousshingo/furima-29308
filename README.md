@@ -50,7 +50,6 @@ Things you may want to cover:
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | title   | string | null: false |
-| image  | text | null: false |
 | description | text | null: false |
 | price   | integer | null: false |
 | category_id   | integer | null: false |	
@@ -58,7 +57,7 @@ Things you may want to cover:
 | ship_fee_id  | integer | null: false |	
 | region_id  | integer | null: false |	
 | ship_date_id | integer | null: false |
-| user_id  | references | null: false, foreign_key: true |
+| user  | references | null: false, foreign_key: true |
 
 ### Association
 
